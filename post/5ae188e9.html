@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据库复习2 | Arrinna</title><meta name="author" content="Arrinna"><meta name="copyright" content="Arrinna"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="接下来我们就开始复习第二章节的知识了。 第二章开始讲语法了。 我们可以看看之前写的实验报告。 基础概念回顾 我们来回顾一下SQL数据库的体系结构，SQL支持数据库的三级模式和二级映射，其中二级映射保证数据库的数据独立性。 SQL用户可以用SQL语言对表和视图进行查询。 视图说白了就是虚表，我们怎么理解视图？  我们看下SQL语言的特点吧 123456781.综合统一：SQL语言风格统一2.高度非过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库复习2">
+<meta property="og:url" content="https://daffodil-nian.github.io/post/5ae188e9.html">
+<meta property="og:site_name" content="Arrinna">
+<meta property="og:description" content="接下来我们就开始复习第二章节的知识了。 第二章开始讲语法了。 我们可以看看之前写的实验报告。 基础概念回顾 我们来回顾一下SQL数据库的体系结构，SQL支持数据库的三级模式和二级映射，其中二级映射保证数据库的数据独立性。 SQL用户可以用SQL语言对表和视图进行查询。 视图说白了就是虚表，我们怎么理解视图？  我们看下SQL语言的特点吧 123456781.综合统一：SQL语言风格统一2.高度非过">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daffodil-nian.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2025-11-11T04:31:45.000Z">
+<meta property="article:modified_time" content="2025-11-11T04:35:26.687Z">
+<meta property="article:author" content="Arrinna">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://daffodil-nian.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数据库复习2",
+  "url": "https://daffodil-nian.github.io/post/5ae188e9.html",
+  "image": "https://daffodil-nian.github.io/img/butterfly-icon.png",
+  "datePublished": "2025-11-11T04:31:45.000Z",
+  "dateModified": "2025-11-11T04:35:26.687Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Arrinna",
+      "url": "https://daffodil-nian.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://daffodil-nian.github.io/post/5ae188e9.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据库复习2',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r";</script><meta name="generator" content="Hexo 8.1.0"></head><body><div id="web_bg" style="background: [object Object];"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/agirl.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Arrinna</span></a><a class="nav-page-title" href="/"><span class="site-name">数据库复习2</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数据库复习2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-11T04:31:45.000Z" title="发表于 2025-11-11 12:31:45">2025-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-11T04:35:26.687Z" title="更新于 2025-11-11 12:35:26">2025-11-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/post/5ae188e9.html" data-flag-title="数据库复习2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>接下来我们就开始复习第二章节的知识了。</p>
+<p>第二章开始讲语法了。</p>
+<p>我们可以看看之前写的实验报告。</p>
+<h1 id="基础概念回顾"><a href="#基础概念回顾" class="headerlink" title="基础概念回顾"></a>基础概念回顾</h1><blockquote>
+<p>我们来回顾一下SQL数据库的体系结构，SQL支持数据库的三级模式和二级映射，其中<strong>二级映射</strong>保证数据库的数据独立性。</p>
+<p>SQL用户可以用SQL语言对表和视图进行查询。</p>
+<p>视图说白了就是虚表，我们怎么理解视图？</p>
+</blockquote>
+<p>我们看下SQL语言的特点吧</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.综合统一：</span><br><span class="line">SQL语言风格统一</span><br><span class="line">2.高度非过程化：</span><br><span class="line">这个特点怎么理解呢，我们可以简单的这么理解，我们只需要知道这么操作</span><br><span class="line">可以得到什么结果并不需要知道为什么。</span><br><span class="line">3.面向集合的操作方法：</span><br><span class="line">这个简单，我们的行是元组组成的，把一堆元组集合就是一个集合</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL的主要动词"><a href="#SQL的主要动词" class="headerlink" title="SQL的主要动词"></a>SQL的主要动词</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DDL:</span><br><span class="line"><span class="keyword">create</span>,<span class="keyword">drop</span>,<span class="keyword">alter</span></span><br><span class="line">DML:</span><br><span class="line"><span class="keyword">insert</span>,<span class="keyword">delete</span>,<span class="keyword">update</span>,<span class="keyword">select</span></span><br><span class="line">DCL:</span><br><span class="line"><span class="keyword">revoke</span>,<span class="keyword">commit</span>,<span class="keyword">grant</span>,<span class="keyword">rollback</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="数据定义"><a href="#数据定义" class="headerlink" title="数据定义"></a>数据定义</h1><p>从这里开始我们要以实验报告中的例子来结合讲解一系列概念</p>
+<h2 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.使用SQL语句创建数据库studentsdb。</span><br><span class="line">2.使用SQL语句选择studentsdb为当前使用的数据库。 </span><br><span class="line">3.使用SQL语句在studentsdb数据库中创建数据表 student<span class="emphasis">_info、curriculum、grade。</span></span><br></pre></td></tr></table></figure>
+
+<p>这个就需要用到create这样一个动词</p>
+<p>以下就是题目的答案</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="keyword">show</span> databases;</span><br><span class="line">这个操作是展示数据库看有哪些名称的数据库。</span><br><span class="line"><span class="number">2.</span><span class="keyword">create</span> database if <span class="keyword">not</span> <span class="keyword">exists</span> studentsdb;</span><br><span class="line">这个操作是如果名为 studentsdb 的数据库还不存在，那么就创建它；如果它已经存在了，就不要做任何操作。</span><br><span class="line"><span class="number">3.</span>use studentsdb;</span><br><span class="line">这个操作是告诉MySQL数据库系统，我后续的所有操作，默认都在名为 studentsdb 的数据库中进行。</span><br><span class="line"><span class="number">4.</span><span class="keyword">create table</span> if <span class="keyword">not</span> <span class="keyword">exists</span> student_info(</span><br><span class="line">student_number <span class="type">char</span>(<span class="number">4</span>) <span class="keyword">not null</span> <span class="keyword">primary key</span>,</span><br><span class="line">student_name <span class="type">char</span>(<span class="number">8</span>) <span class="keyword">not null</span> comment ‘姓名’,</span><br><span class="line">student_gender <span class="type">char</span>(<span class="number">2</span>) comment ‘性别’,</span><br><span class="line">student_birth_date <span class="type">date</span> comment ‘出生日期<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">student_address varchar(50) comment ‘家庭住址’</span></span><br><span class="line"><span class="string">)default charset=utf8;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用数据库就用use这样一个语句</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删掉某个数据库db</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> database db</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本表的定义，删除和修改"><a href="#基本表的定义，删除和修改" class="headerlink" title="基本表的定义，删除和修改"></a>基本表的定义，删除和修改</h2><h3 id="利用子查询来创建表"><a href="#利用子查询来创建表" class="headerlink" title="利用子查询来创建表"></a>利用子查询来创建表</h3><hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create table</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> db <span class="keyword">where</span> idx<span class="operator">=</span><span class="number">30</span>;</span><br></pre></td></tr></table></figure>
+
+<p>表的定义就不需要我来讲吧，那么我们讲讲删除和修改吧</p>
+<h3 id="修改表的结构"><a href="#修改表的结构" class="headerlink" title="修改表的结构"></a>修改表的结构</h3><p>如果题目要求在一张表中添加新列，我们应该怎么做？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter table</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">add</span> telephone <span class="type">varchar</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果想要修改已经存在的某一列的属性值怎么做？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter table</span> <span class="keyword">user</span></span><br><span class="line">modify telephone <span class="type">varchar</span>(<span class="number">10010</span>) <span class="keyword">default</span> &quot;10086&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>那如果要删除某一列表呢？我们怎么做？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter table</span> dept</span><br><span class="line"><span class="keyword">drop</span> telephone;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果想要修改列名怎么办？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter table</span> <span class="keyword">user</span></span><br><span class="line">change xinyi xiaolan <span class="type">varchar</span>(<span class="number">11111</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>现在我想要把所有数据清空但是表不要删掉怎么做？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">truncate</span> <span class="keyword">table</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据信息"><a href="#删除数据信息" class="headerlink" title="删除数据信息"></a>删除数据信息</h3><hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> idx<span class="operator">=</span><span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h2 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> [<span class="keyword">all</span>,<span class="keyword">distinct</span>] deptno <span class="keyword">from</span> <span class="keyword">user</span></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>这个指的是查询的结果是所有的还是去重的，一般情况下我们是会自动去重的</span><br></pre></td></tr></table></figure>
+
+<h3 id="为列名取别名"><a href="#为列名取别名" class="headerlink" title="为列名取别名"></a>为列名取别名</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> konan <span class="keyword">as</span> boy <span class="keyword">from</span> <span class="keyword">user</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;%路人%&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>除了%这个通配符还有其他通配符，比如说_表示任意一个字符，但是我更喜欢用前者</p>
+<p>具体通配符因情况讨论吧。</p>
+<blockquote>
+<p>小明想要设计一张数据库的表，要求查询emp表中的所有姓名开头是K的或者姓名第二个字母是c</p>
+<p>的员工的所有信息。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;k%&#x27;</span> <span class="keyword">or</span> name <span class="keyword">like</span> <span class="string">&#x27;_C%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="之内判断"><a href="#之内判断" class="headerlink" title="之内判断"></a>之内判断</h3><p>可以用in判断是否是符合条件（集合内）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> deptno <span class="keyword">from</span> emp </span><br><span class="line"><span class="keyword">where</span> deptno <span class="keyword">in</span>(<span class="number">20</span>,<span class="number">30</span>)</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>这个写法等效于</span><br><span class="line"><span class="keyword">select</span> deptno <span class="keyword">from</span> emp</span><br><span class="line"><span class="keyword">where</span> deptno <span class="operator">=</span> <span class="number">20</span> <span class="keyword">or</span> deptno <span class="operator">=</span><span class="number">30</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="order-by排序"><a href="#order-by排序" class="headerlink" title="order by排序"></a>order by排序</h3><p>desc是降序，asc是升序，你就记住从小到大就asc，如果从高到低就desc</p>
+<h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><p>接下来我们复习一下分组查询</p>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>聚合函数，别名分组函数，这个是用于查询出数据组的，以下是常见的聚合函数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">count</span>()</span><br><span class="line"><span class="built_in">sum</span>()</span><br><span class="line"><span class="built_in">avg</span>()</span><br><span class="line"><span class="built_in">max</span>()</span><br><span class="line"><span class="built_in">min</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用聚合函数我们通常来说是这么用的</p>
+<p><strong>用在查询语句中</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">as</span> shanghai,<span class="built_in">avg</span>(sal) <span class="keyword">as</span> average <span class="keyword">from</span> emp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 合法：class 是 GROUP BY 字段</span></span><br><span class="line"><span class="keyword">SELECT</span> class, <span class="built_in">AVG</span>(score)</span><br><span class="line"><span class="keyword">FROM</span> students</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> class</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> class <span class="keyword">ASC</span>, <span class="built_in">AVG</span>(score) <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>用在having语句中</strong></p>
+<blockquote>
+<p><strong>比如说我要查寻各个部门的平均工资,要求只显示平均工资大于2000的,这么写是因为where用不了这种聚合函数</strong></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span>(sal) <span class="keyword">from</span> emp</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> deptno</span><br><span class="line"><span class="keyword">having</span> <span class="built_in">AVG</span>(sal)<span class="operator">&gt;</span><span class="number">20</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h2><p>我们这里要用到union这种运算符的，这个也叫集合联合查询。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用UNION运算符针student<span class="emphasis">_info表中姓“刘”的学生的学号、</span></span><br><span class="line"><span class="emphasis">姓名与姓“张”的学生的学号、姓名返回在一个表中。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student_info</span><br><span class="line"><span class="keyword">where</span> studentnumber,studentname <span class="keyword">from</span> studentinfo</span><br><span class="line"><span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;刘%&#x27;</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student_info</span><br><span class="line"><span class="keyword">where</span> studentnumber,studentname <span class="keyword">from</span> studentinfo</span><br><span class="line"><span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;张%&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在student<span class="emphasis">_info表中查找与“刘东阳”性别相同的所有学生的姓名、出生日期。</span></span><br><span class="line"><span class="emphasis">（2）使用IN子查询查找所修课程编号为0002、0005的学生学号、姓名、性别。</span></span><br><span class="line"><span class="emphasis">（3）使用ANY子查询查找学号为0001的学生的分数比0002号的学生的最低分数高的课程编号和分数。</span></span><br><span class="line"><span class="emphasis">（4）使用ALL子查询查找学号为0001的学生的分数比学号为0002的学生的最高成绩还要高的课程编号和分数。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">15.</span><span class="keyword">SELECT</span> student_name,student_birth_date <span class="keyword">FROM</span> student_info</span><br><span class="line"><span class="keyword">WHERE</span> student_gender <span class="operator">=</span> (</span><br><span class="line"><span class="keyword">SELECT</span> student_gender <span class="keyword">FROM</span> student_info</span><br><span class="line"><span class="keyword">WHERE</span> student_name <span class="operator">=</span> &quot;刘东阳&quot;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">15.</span><span class="keyword">SELECT</span> student_name,student_birth_date <span class="keyword">FROM</span> student_info</span><br><span class="line"><span class="keyword">WHERE</span> student_gender <span class="operator">=</span> (</span><br><span class="line"><span class="keyword">SELECT</span> student_gender <span class="keyword">FROM</span> student_info</span><br><span class="line"><span class="keyword">WHERE</span> student_name <span class="operator">=</span> &quot;刘东阳&quot;);</span><br><span class="line"><span class="number">16.</span><span class="keyword">SELECT</span> student_number,student_name,student_gender <span class="keyword">FROM</span> student_info</span><br><span class="line"><span class="keyword">WHERE</span> student_number <span class="keyword">IN</span> (</span><br><span class="line"><span class="keyword">SELECT</span> student_number <span class="keyword">FROM</span> grade</span><br><span class="line"><span class="keyword">WHERE</span> curriculum_number <span class="keyword">IN</span> (&quot;0002&quot;,&quot;0005&quot;));</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><h3 id="inner-join"><a href="#inner-join" class="headerlink" title="inner join"></a>inner join</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">20.</span><span class="keyword">SELECT</span> s.student_number,s.student_name,g.student_score</span><br><span class="line"><span class="keyword">FROM</span> student_info s <span class="keyword">INNER</span> <span class="keyword">JOIN</span> grade g <span class="keyword">ON</span> s.student_number<span class="operator">=</span>g.student_number;</span><br></pre></td></tr></table></figure>
+
+<p>为什么是这么写的，这里可以简单理解为</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s.name,g.grade11</span><br><span class="line"><span class="keyword">from</span> student s <span class="keyword">inner</span> <span class="keyword">join</span> grade g </span><br><span class="line"><span class="keyword">on</span> s.student_number<span class="operator">=</span>g.student_number</span><br></pre></td></tr></table></figure>
+
+<p>格式可以这么理解</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">表<span class="number">1</span> 别名 <span class="keyword">inner</span> <span class="keyword">join</span> 表<span class="number">2</span> 别名 <span class="keyword">on</span> </span><br><span class="line">列名<span class="number">1</span><span class="operator">=</span>列名<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>如果遇到这种题目</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（3）查询每个学生所选课程的最高成绩，要求列出学号、姓名、最高成绩。</span><br><span class="line">（4）使用左外连接查询每个学生的总成绩，要求列出学号、姓名、总成绩，没有选修课程的学生的总成绩为空。</span><br><span class="line">（5）为grade表添加数据行：学号为0004、课程编号为0006、分数为76。</span><br><span class="line">使用右外连接查询所有课程的选修情况，要求列出课程编号、课程名称、选修人数，curriculum表中没有的课程列值为空。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">22.</span><span class="keyword">SELECT</span> s.student_number,s.student_name,<span class="built_in">MAX</span>(g.student_score) <span class="keyword">FROM</span>  student_info  </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> grade g <span class="keyword">ON</span> s.student_number <span class="operator">=</span>g.student_number</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> s.student_number;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="左外连接"><a href="#左外连接" class="headerlink" title="左外连接"></a>左外连接</h3><p>我们左外连接的命令如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">23.</span><span class="keyword">SELECT</span> s.student_number,s.student_name,<span class="built_in">SUM</span>(g.student_score)</span><br><span class="line">   <span class="keyword">FROM</span> student_info s <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> grade g <span class="keyword">ON</span> s.student_number <span class="operator">=</span>g.student_number</span><br><span class="line">   <span class="keyword">GROUP</span> <span class="keyword">BY</span> s.student_number;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="索引和视图"><a href="#索引和视图" class="headerlink" title="索引和视图"></a>索引和视图</h2><p>接下来我们讲讲索引和视图，虽然不考，但是我们还是学一下比较好</p>
+<p>索引可以帮助用户提高查询数据的效率，类似于书中的目录。</p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index emp_name <span class="keyword">on</span> emp(job)</span><br></pre></td></tr></table></figure>
+
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>视图是由select子查询语句定义的一个逻辑表。<strong>只有定义没数据，又被称之为虚表。</strong></p>
+<p>视图是用于<strong>查看和操作表中数据的一种方法。</strong></p>
+<p><strong>为啥建视图？</strong></p>
+<p>我简单举个例子。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> avg <span class="keyword">as</span> </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span><span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>比如说，公司经常定期查看每个部门的名称之类的，我们可以把复杂的查询转换成一个视图，好让别人看的明白。</p>
+<p><strong>如果想要让视图由约束，就要在最后面用上with check option,如果不满足要求会自动爆错。</strong></p>
+<p><strong>如果要修改视图，我们可以用create or replace view 视图名称 as sql语句</strong></p>
+<p><strong>我们也可以用alter修改视图</strong></p>
+<p>**alter view 视图名 as **</p>
+<p><strong>删除视图也是一样的操作</strong></p>
+<p>**drop  view 视图名 **</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://daffodil-nian.github.io">Arrinna</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://daffodil-nian.github.io/post/5ae188e9.html">https://daffodil-nian.github.io/post/5ae188e9.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://daffodil-nian.github.io" target="_blank">Arrinna</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/post/2de6b87f.html" title="数据库复习3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">数据库复习3</div></div><div class="info-2"><div class="info-item-1">来到本章节，我们就要开始讲解数据库编程知识了 准备坐上小火车，我们出发了~ 常量与变量字符串常量就用个单引号或者双引号来装着。 常量我们就略过，主要讲讲变量。 1全局变量是@@，局部变量是@  常见的系统函数字符串123456char_length()返回字符串的str的字符个数length()返回字符串字节长度select char_length(&#x27;china&#x27;),length(&#x27;china&#x27;)  合并字符串函数12concat(&#x27;1&#x27;,&#x27;2&#x27;)  字符串大小写转换函数12lower()upper()  删除空格函数123ltrim()rtrim()trim()  取子串函数123substring()select * from emp where substring(ename,1,1)=&#x27;s&#x27;返回开头是s的雇员的信息  日期和时间函数1234curdate()&#x27;yyyy-mm-dd&#x27;year()    程序控制流语句语句块123beginsql语句块end...</div></div></div></a><a class="pagination-related" href="/post/c3e8d953.html" title="数据库复习1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">数据库复习1</div></div><div class="info-2"><div class="info-item-1">应用 欢迎来到我们数据库的海洋，在这里我希望各位能够通过我的博客有所收获，那废话不多说我们直接开讲  首先我们要现知道数据库中经常听到SQL语句，那SQL语句是什么意思呢？  SQL语句，全称结构化查询语言（Structured query language）,  然后我们想要求解 数据库系统的概念数据数据是数据库存储的基本对象，可以类比为excel表格中的单元格存储的东西。 数据库的话我们可以想象成元组的集合。 数据库管理系统DBMS这个是一款用户和操作系统OS之间的一层数据库管理软件。 比如说MYSQL，Oracle等软件。 它包括以下功能 123456DML数据操控语言DDL数据定义语言DCL数据控制语言  DDL然后我们讲解一下DDL语言哈，这个也是我们最先接触到的数据语言，我们可以把这个类比成我们创建excel表格并且定义好又哪些属性，这就是我们DDL的功能职责。 DML接下来就是DML语言了，DML语言中就是我们常说的增删改查这些，无论是在我们数据结构这么课程中还是在我们日常用excel表格的过程中，我们都经常用到这种操作，至于语法结构就等我们到第二章节再讲。 DCL...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/post/2b79c65f.html" title="4.关系数据的基本模型笔记01"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-03</div><div class="info-item-2">4.关系数据的基本模型笔记01</div></div><div class="info-2"><div class="info-item-1">关系模型的基本概念基本术语 小蝶学习关系模型感觉疑惑，不知道很多基本术语，就问冉冉，冉冉就给她解答  https://blog.csdn.net/aiqq136/article/details/123108011?ops_request_misc&#x3D;%257B%2522request%255Fid%2522%253A%2522b309c696495eca9bec52ec8b28ac0f65%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id&#x3D;b309c696495eca9bec52ec8b28ac0f65&amp;biz_id&#x3D;0&amp;utm_medium&#x3D;distribute.pc_search_result.none-task-blog-2alltop_positive~default-1-123108011-null-null.142^v102^pc_search_result_base7&amp;utm_term&#x3D;%E...</div></div></div></a><a class="pagination-related" href="/post/c3e8d953.html" title="数据库复习1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-11</div><div class="info-item-2">数据库复习1</div></div><div class="info-2"><div class="info-item-1">应用 欢迎来到我们数据库的海洋，在这里我希望各位能够通过我的博客有所收获，那废话不多说我们直接开讲  首先我们要现知道数据库中经常听到SQL语句，那SQL语句是什么意思呢？  SQL语句，全称结构化查询语言（Structured query language）,  然后我们想要求解 数据库系统的概念数据数据是数据库存储的基本对象，可以类比为excel表格中的单元格存储的东西。 数据库的话我们可以想象成元组的集合。 数据库管理系统DBMS这个是一款用户和操作系统OS之间的一层数据库管理软件。 比如说MYSQL，Oracle等软件。 它包括以下功能 123456DML数据操控语言DDL数据定义语言DCL数据控制语言  DDL然后我们讲解一下DDL语言哈，这个也是我们最先接触到的数据语言，我们可以把这个类比成我们创建excel表格并且定义好又哪些属性，这就是我们DDL的功能职责。 DML接下来就是DML语言了，DML语言中就是我们常说的增删改查这些，无论是在我们数据结构这么课程中还是在我们日常用excel表格的过程中，我们都经常用到这种操作，至于语法结构就等我们到第二章节再讲。 DCL...</div></div></div></a><a class="pagination-related" href="/post/2de6b87f.html" title="数据库复习3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-11</div><div class="info-item-2">数据库复习3</div></div><div class="info-2"><div class="info-item-1">来到本章节，我们就要开始讲解数据库编程知识了 准备坐上小火车，我们出发了~ 常量与变量字符串常量就用个单引号或者双引号来装着。 常量我们就略过，主要讲讲变量。 1全局变量是@@，局部变量是@  常见的系统函数字符串123456char_length()返回字符串的str的字符个数length()返回字符串字节长度select char_length(&#x27;china&#x27;),length(&#x27;china&#x27;)  合并字符串函数12concat(&#x27;1&#x27;,&#x27;2&#x27;)  字符串大小写转换函数12lower()upper()  删除空格函数123ltrim()rtrim()trim()  取子串函数123substring()select * from emp where substring(ename,1,1)=&#x27;s&#x27;返回开头是s的雇员的信息  日期和时间函数1234curdate()&#x27;yyyy-mm-dd&#x27;year()    程序控制流语句语句块123beginsql语句块end...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Arrinna</div><div class="author-info-description">Arrinna的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/daffodil-nian"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><div class="xpand" style="height:200px;">
+  <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+</div>
+<script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script>
+<script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.</span> <span class="toc-text">基础概念回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%A8%E8%AF%8D"><span class="toc-number">1.1.</span> <span class="toc-text">SQL的主要动词</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE1"><span class="toc-number">2.1.</span> <span class="toc-text">题目1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%8C%E5%88%A0%E9%99%A4%E5%92%8C%E4%BF%AE%E6%94%B9"><span class="toc-number">2.2.</span> <span class="toc-text">基本表的定义，删除和修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%AD%90%E6%9F%A5%E8%AF%A2%E6%9D%A5%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">利用子查询来创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">2.2.2.</span> <span class="toc-text">修改表的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E4%BF%A1%E6%81%AF"><span class="toc-number">2.2.3.</span> <span class="toc-text">删除数据信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.3.</span> <span class="toc-text">基本查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E5%88%97%E5%90%8D%E5%8F%96%E5%88%AB%E5%90%8D"><span class="toc-number">2.3.1.</span> <span class="toc-text">为列名取别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.3.2.</span> <span class="toc-text">模糊查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E5%86%85%E5%88%A4%E6%96%AD"><span class="toc-number">2.3.3.</span> <span class="toc-text">之内判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#order-by%E6%8E%92%E5%BA%8F"><span class="toc-number">2.3.4.</span> <span class="toc-text">order by排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.4.</span> <span class="toc-text">分组查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.1.</span> <span class="toc-text">聚合函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.5.</span> <span class="toc-text">联合查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.6.</span> <span class="toc-text">嵌套查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.7.</span> <span class="toc-text">连接查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inner-join"><span class="toc-number">2.7.1.</span> <span class="toc-text">inner join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.7.2.</span> <span class="toc-text">左外连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%92%8C%E8%A7%86%E5%9B%BE"><span class="toc-number">2.8.</span> <span class="toc-text">索引和视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">2.8.1.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-number">2.8.2.</span> <span class="toc-text">视图</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/c8704e91.html" title="软件工程知识库介绍">软件工程知识库介绍</a><time datetime="2026-08-30T15:34:00.000Z" title="发表于 2026-08-30 23:34:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/899287ff.html" title="个人知识库介绍">个人知识库介绍</a><time datetime="2026-08-30T15:32:00.000Z" title="发表于 2026-08-30 23:32:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/9228418d.html" title="毕设与相关项目介绍">毕设与相关项目介绍</a><time datetime="2026-08-30T15:30:00.000Z" title="发表于 2026-08-30 23:30:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/2de6b87f.html" title="数据库复习3">数据库复习3</a><time datetime="2025-11-11T04:31:57.000Z" title="发表于 2025-11-11 12:31:57">2025-11-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/5ae188e9.html" title="数据库复习2">数据库复习2</a><time datetime="2025-11-11T04:31:45.000Z" title="发表于 2025-11-11 12:31:45">2025-11-11</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Arrinna</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"请输入评论内容...","pageView":true}
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'KXbSjKGH7NCsReUp1mNIM2Xb-MdYXbMMI',
+      appKey: '2SuAlB2Qs3IBkVY15Q2TJHwR',
+      avatar: 'monsterid',
+      serverURLs: 'https://kxbsjkgh.api.lncldglobal.com',
+      emojiMaps: "",
+      visitor: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/valine@1.5.3/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><div class="aplayer no-destroy" data-id="17381553477" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-theme="#b7daff"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

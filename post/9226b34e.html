@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计组之定点数与浮点数的运算法则 | Arrinna</title><meta name="author" content="Arrinna"><meta name="copyright" content="Arrinna"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="原码加减运算 首先我们了解一下原码的加减法的规则，计算机是不能做减法的，所以我们想要把被减数变补，也就是变成补码再做加法运算。  补码加减运算 补码渐渐运算要比原码的简单  加法运算补码的加法运算符号位要参与运算，结果就是等于补码之和 减法运算补码减法就是把后面的值换成减数的补码，也就是变补 例题讲解1234567891011121314例题1.设A&#x3D;0.1011，B&#x3D;-0.1110求A+B：[A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计组之定点数与浮点数的运算法则">
+<meta property="og:url" content="https://daffodil-nian.github.io/post/9226b34e.html">
+<meta property="og:site_name" content="Arrinna">
+<meta property="og:description" content="原码加减运算 首先我们了解一下原码的加减法的规则，计算机是不能做减法的，所以我们想要把被减数变补，也就是变成补码再做加法运算。  补码加减运算 补码渐渐运算要比原码的简单  加法运算补码的加法运算符号位要参与运算，结果就是等于补码之和 减法运算补码减法就是把后面的值换成减数的补码，也就是变补 例题讲解1234567891011121314例题1.设A&#x3D;0.1011，B&#x3D;-0.1110求A+B：[A">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daffodil-nian.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2025-11-07T09:07:22.000Z">
+<meta property="article:modified_time" content="2025-11-07T10:56:48.666Z">
+<meta property="article:author" content="Arrinna">
+<meta property="article:tag" content="计组">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://daffodil-nian.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "计组之定点数与浮点数的运算法则",
+  "url": "https://daffodil-nian.github.io/post/9226b34e.html",
+  "image": "https://daffodil-nian.github.io/img/butterfly-icon.png",
+  "datePublished": "2025-11-07T09:07:22.000Z",
+  "dateModified": "2025-11-07T10:56:48.666Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Arrinna",
+      "url": "https://daffodil-nian.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://daffodil-nian.github.io/post/9226b34e.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计组之定点数与浮点数的运算法则',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r";</script><meta name="generator" content="Hexo 8.1.0"></head><body><div id="web_bg" style="background: [object Object];"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/agirl.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Arrinna</span></a><a class="nav-page-title" href="/"><span class="site-name">计组之定点数与浮点数的运算法则</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">计组之定点数与浮点数的运算法则</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-07T09:07:22.000Z" title="发表于 2025-11-07 17:07:22">2025-11-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-07T10:56:48.666Z" title="更新于 2025-11-07 18:56:48">2025-11-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/post/9226b34e.html" data-flag-title="计组之定点数与浮点数的运算法则"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="原码加减运算"><a href="#原码加减运算" class="headerlink" title="原码加减运算"></a>原码加减运算</h1><blockquote>
+<p>首先我们了解一下原码的加减法的规则，计算机是不能做减法的，所以我们想要把被减数变补，也就是变成补码再做加法运算。</p>
+</blockquote>
+<h1 id="补码加减运算"><a href="#补码加减运算" class="headerlink" title="补码加减运算"></a>补码加减运算</h1><blockquote>
+<p>补码渐渐运算要比原码的简单</p>
+</blockquote>
+<h2 id="加法运算"><a href="#加法运算" class="headerlink" title="加法运算"></a>加法运算</h2><p>补码的加法运算符号位要参与运算，结果就是等于补码之和</p>
+<h2 id="减法运算"><a href="#减法运算" class="headerlink" title="减法运算"></a>减法运算</h2><p>补码减法就是把后面的值换成减数的补码，也就是变补</p>
+<h2 id="例题讲解"><a href="#例题讲解" class="headerlink" title="例题讲解"></a>例题讲解</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">例题1.</span><br><span class="line">设A=0.1011，B=-0.1110</span><br><span class="line">求A+B</span><br><span class="line">：</span><br><span class="line"></span><br><span class="line">[A]补=0.1011</span><br><span class="line">[B]补=1.0010</span><br><span class="line">A+B=</span><br><span class="line">1.1101</span><br><span class="line">例题2.</span><br><span class="line">设A=0.1011，B=-0.0010，求A-B</span><br><span class="line">[A]补=0.1011</span><br><span class="line">[-B]补=0.0010</span><br><span class="line">A-B=0.1101</span><br></pre></td></tr></table></figure>
+
+<h2 id="符号拓展"><a href="#符号拓展" class="headerlink" title="符号拓展"></a>符号拓展</h2><blockquote>
+<p>在我们计算机算数的过程中，有的时候需要拓展位数，其中正数拓展0负数拓展1.</p>
+</blockquote>
+<h1 id="定点数乘除法运算例题讲解"><a href="#定点数乘除法运算例题讲解" class="headerlink" title="定点数乘除法运算例题讲解"></a>定点数乘除法运算例题讲解</h1><p><img src="/img/2025-11-7image1.png" alt="定点数乘法运算原理"></p>
+<p><img src="/img/2025-11-7image2.png" alt="定点数除法运算原理"></p>
+<p><img src="/img/2025-11-7image3.png" alt="定点数运算实例详解"></p>
+<h1 id="规格化浮点运算"><a href="#规格化浮点运算" class="headerlink" title="规格化浮点运算"></a>规格化浮点运算</h1><h2 id="知识回顾"><a href="#知识回顾" class="headerlink" title="知识回顾"></a>知识回顾</h2><blockquote>
+<p>在我们之前学的知识中，我们学习了规格化浮点数是一个怎样的概念以及这个东西的具体例子，让我带你们来回顾一下这个是什么东西吧。</p>
+</blockquote>
+<p>首先我们要搞懂浮点数的表示形式</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43829058/article/details/128049956?ops_request_misc=%257B%2522request%255Fid%2522%253A%252287b86598b1cf665acb5d972b60ba22ef%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=87b86598b1cf665acb5d972b60ba22ef&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-128049956-null-null.142%5Ev102%5Epc_search_result_base7&utm_term=%E8%A7%84%E6%A0%BC%E5%8C%96%E6%B5%AE%E7%82%B9%E6%95%B0&spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_43829058&#x2F;article&#x2F;details&#x2F;128049956?ops_request_misc&#x3D;%257B%2522request%255Fid%2522%253A%252287b86598b1cf665acb5d972b60ba22ef%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id&#x3D;87b86598b1cf665acb5d972b60ba22ef&amp;biz_id&#x3D;0&amp;utm_medium&#x3D;distribute.pc_search_result.none-task-blog-2<del>all</del>top_click~default-1-128049956-null-null.142^v102^pc_search_result_base7&amp;utm_term&#x3D;%E8%A7%84%E6%A0%BC%E5%8C%96%E6%B5%AE%E7%82%B9%E6%95%B0&amp;spm&#x3D;1018.2226.3001.4187</a></p>
+<p>可以参考这篇文章讲的内容，说白了浮点数就是由阶码和尾数组成的，其中阶码由阶符和阶码数值部分组成，尾数由数符和尾数的数值部分组成的。</p>
+<p>那规格化的话就是这种写法：</p>
+<p>一般来说正数是00.1xxx这种写法，负数是11.0xxx这种写法，我们采用两位符号位表示数值的正负</p>
+<p><strong>规格化浮点数同样涉及两种操作：左规和右规，尾数部分移动的话不要忘记阶码部分也要改变值。</strong></p>
+<h2 id="浮点数加减法运算例子"><a href="#浮点数加减法运算例子" class="headerlink" title="浮点数加减法运算例子"></a>浮点数加减法运算例子</h2><p>接下来我们用一个例题来举个例子</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">有两个浮点数分别为</span><br><span class="line">A=0.101110x2^-01</span><br><span class="line">B=-(0.101011)x2^-10</span><br><span class="line">求A+B？</span><br><span class="line">其中阶码4位，用移码（偏移值为2的3次方）表示，尾数为8，用补码表示，包括一个符号位</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这道题目解法如下</p>
+<h3 id="对阶"><a href="#对阶" class="headerlink" title="对阶"></a>对阶</h3><p>首先我们要给浮点数转换成IEEE754表示方法</p>
+<p>不懂的可以看下我上面发的链接里的内容</p>
+<p>[A]浮</p>
+<p>阶码部分：1000-0001&#x3D;0111</p>
+<p>尾数部分：0.10111100</p>
+<p>[B]浮</p>
+<p>阶码部分：1000-0010&#x3D;0110</p>
+<p>尾数部分：1.0101010</p>
+<blockquote>
+<p>先规格化：把原始尾数（比如 0.101011）变成 1.01011（保证精度最大化，这一步位数可能变多 &#x2F; 变少）；</p>
+<p>再适配存储：因为尾数有固定存储位数（比如 8 位含数符，数值位只能存 7 位），规格化后的尾数（1.01011）数值位只有 5 位，要补到 7 位，或如果规格化后数值位超过 7 位，就把多出来的位舍去 &#x2F; 进位（比如补位后是 1.0101011，数值位 8 位，就舍掉最后 1 位，或进位后变成 1.0101100）；</p>
+</blockquote>
+<p>然后做好准备工作之后就要求对阶了</p>
+<p>ΔE&#x3D;EA-EB</p>
+<p>&#x3D;-1-（-2）&#x3D;1</p>
+<p>所以B的浮点数变了</p>
+<p>[B]浮</p>
+<p>阶码部分：0111</p>
+<p>-&gt;右移</p>
+<p>尾数部分：1.1010101</p>
+<h3 id="尾数求和"><a href="#尾数求和" class="headerlink" title="尾数求和"></a>尾数求和</h3><p>尾数求和</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  00.1011100</span><br><span class="line"><span class="section">+ 11.1010101</span></span><br><span class="line"><span class="section">--------------</span></span><br><span class="line">  00.0110001  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>求完结果之后要规格化</p>
+<h3 id="规格化"><a href="#规格化" class="headerlink" title="规格化"></a>规格化</h3><p>左移1位阶码减1</p>
+<p>阶码：0010</p>
+<p>00.110001 X 2^-10</p>
+<p>这里容易搞错，尾数右移1位数值缩小2倍。</p>
+<h3 id="舍去以及溢出判断"><a href="#舍去以及溢出判断" class="headerlink" title="舍去以及溢出判断"></a>舍去以及溢出判断</h3><p>这个根据情况讨论，具体内容可详见这篇文章</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhangshangjie1/article/details/137920540?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522b68551764bef6914a069ad5f0b831f8b%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=b68551764bef6914a069ad5f0b831f8b&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-137920540-null-null.142%5Ev102%5Epc_search_result_base7&utm_term=%E6%B5%AE%E7%82%B9%E6%95%B0%E5%8A%A0%E6%B3%95%E8%88%8D%E5%8E%BB%E6%BA%A2%E5%87%BA%E5%88%A4%E6%96%AD&spm=1018.2226.3001.4187">https://blog.csdn.net/zhangshangjie1/article/details/137920540?ops_request_misc&#x3D;%257B%2522request%255Fid%2522%253A%2522b68551764bef6914a069ad5f0b831f8b%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id&#x3D;b68551764bef6914a069ad5f0b831f8b&amp;biz_id&#x3D;0&amp;utm_medium&#x3D;distribute.pc_search_result.none-task-blog-2<del>all</del>first_rank_ecpm_v1~rank_v31_ecpm-1-137920540-null-null.142^v102^pc_search_result_base7&amp;utm_term&#x3D;%E6%B5%AE%E7%82%B9%E6%95%B0%E5%8A%A0%E6%B3%95%E8%88%8D%E5%8E%BB%E6%BA%A2%E5%87%BA%E5%88%A4%E6%96%AD&amp;spm&#x3D;1018.2226.3001.4187</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://daffodil-nian.github.io">Arrinna</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://daffodil-nian.github.io/post/9226b34e.html">https://daffodil-nian.github.io/post/9226b34e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://daffodil-nian.github.io" target="_blank">Arrinna</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BB%84/">计组</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/post/c3e8d953.html" title="数据库复习1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">数据库复习1</div></div><div class="info-2"><div class="info-item-1">应用 欢迎来到我们数据库的海洋，在这里我希望各位能够通过我的博客有所收获，那废话不多说我们直接开讲  首先我们要现知道数据库中经常听到SQL语句，那SQL语句是什么意思呢？  SQL语句，全称结构化查询语言（Structured query language）,  然后我们想要求解 数据库系统的概念数据数据是数据库存储的基本对象，可以类比为excel表格中的单元格存储的东西。 数据库的话我们可以想象成元组的集合。 数据库管理系统DBMS这个是一款用户和操作系统OS之间的一层数据库管理软件。 比如说MYSQL，Oracle等软件。 它包括以下功能 123456DML数据操控语言DDL数据定义语言DCL数据控制语言  DDL然后我们讲解一下DDL语言哈，这个也是我们最先接触到的数据语言，我们可以把这个类比成我们创建excel表格并且定义好又哪些属性，这就是我们DDL的功能职责。 DML接下来就是DML语言了，DML语言中就是我们常说的增删改查这些，无论是在我们数据结构这么课程中还是在我们日常用excel表格的过程中，我们都经常用到这种操作，至于语法结构就等我们到第二章节再讲。 DCL...</div></div></div></a><a class="pagination-related" href="/post/4b2d8ff5.html" title="蓝桥杯刷题day1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">蓝桥杯刷题day1</div></div><div class="info-2"><div class="info-item-1"> 这几天每天晚上刷两个小时的算法题，考虑到我的基础忘得差不多了，所以我今天晚上开始计划十天之内基础打牢。考虑到我的逻辑考虑的不全面所以我要先好好梳理逻辑。  我选择的是cpp方向的 123456789101112131415161718192021222324252627资源限制时间限制：1.0s   内存限制：256.0MB问题描述对于长度为5位的一个01串，每一位都可能是0或1，一共有32种可能。它们的前几个是：0000000001000100001100100请按从小到大的顺序输出这32种01串。输入格式本试题没有输入。输出格式输出32行，按从小到大的顺序每行一个长度为5的01串。样例输出00000000010001000011&lt;以下部分省略&gt;   代码部分 法一,优雅写法 12345678910#include&lt;iostream&gt;using namespace std;int main()&#123;    for(int i=0;i&lt;32;i++)&#123;        for(int j=4;j&gt;=0;j--)&#123;   ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/post/5ec6dff5.html" title="数据的机器层次之定点数和浮点数笔记01"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-04</div><div class="info-item-2">数据的机器层次之定点数和浮点数笔记01</div></div><div class="info-2"><div class="info-item-1">定点表示法原码 本章节就重点讲解一下这些表示法是怎么算出来的吧~  视频讲解在这里 https://www.bilibili.com/video/BV1qG41197E4?t=45.3&amp;p=12   1234567891011121314151617181920212223242526我们讲讲定点整数和定点小数的例子吧真值x=+1101原码表示怎么写的呢？我们来讲讲吧[x]原=0,1101，前面是符号位如果真值x=-1101[x]原=1,1101讲完定点整数，接下来就是定点小数了。真值x=+0.110101[x]原=0.110101真值x=-0.1101[x]原=1.1101说白了，原码就是带符号的绝对值的表示整数的原码表示是[x]原=&#123;0,x 2^n+|x| &#125;小数的原码定义[x]原&#123;x1+|x|&#125;    补码首先讲讲整数的补码  123456定点整数的补码很简单，比如说我的定点整数是(-10101)2[x]补怎么求呢？n为数值位的位数，假设字长为8位，我们数值位就7位，然后怎么求呢？[x]补=2^8+(-10101)=10000...</div></div></div></a><a class="pagination-related" href="/post/64ba633.html" title="计算机组成原理笔记&#x2F;运算方法和运算器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-01</div><div class="info-item-2">计算机组成原理笔记&#x2F;运算方法和运算器</div></div><div class="info-2"><div class="info-item-1">今天我们要复习一下计算机组成原理，我们就按照章节来进行分类。运算方法和运算器在我们第一章节中，讲到我们的运算过程是在CPU这个逻辑元件中进行的，那么在本章节中，我们将会涉及到数值数据是如何在计算机中实现算数运算和逻辑运算的方法，我们还会介绍运算部件的基本结构。 首先哈，我们计算机只能看懂0101这种二进制数，而这种语言就称为机器语言，包括我们之后涉及到的操作码也是由机器语言转换成汇编语言给指令的，再者就是我们的加减乘除都是先转换成二进制再经过逻辑元件处理得到答案的，那么我们先来认识一下基本的运算部件吧。 在加法运算中我们会涉及到一个东西—全加器，玩过图灵完备的朋友们知道，这个全加器实际上就是由一些逻辑元件-与门，异或门，或门组成的。 </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Arrinna</div><div class="author-info-description">Arrinna的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/daffodil-nian"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><div class="xpand" style="height:200px;">
+  <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+</div>
+<script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script>
+<script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">原码加减运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">补码加减运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-number">2.1.</span> <span class="toc-text">加法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%8F%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-number">2.2.</span> <span class="toc-text">减法运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.3.</span> <span class="toc-text">例题讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E6%8B%93%E5%B1%95"><span class="toc-number">2.4.</span> <span class="toc-text">符号拓展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E4%B9%98%E9%99%A4%E6%B3%95%E8%BF%90%E7%AE%97%E4%BE%8B%E9%A2%98%E8%AE%B2%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">定点数乘除法运算例题讲解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%84%E6%A0%BC%E5%8C%96%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97"><span class="toc-number">4.</span> <span class="toc-text">规格化浮点运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE"><span class="toc-number">4.1.</span> <span class="toc-text">知识回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E5%8A%A0%E5%87%8F%E6%B3%95%E8%BF%90%E7%AE%97%E4%BE%8B%E5%AD%90"><span class="toc-number">4.2.</span> <span class="toc-text">浮点数加减法运算例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E9%98%B6"><span class="toc-number">4.2.1.</span> <span class="toc-text">对阶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%BE%E6%95%B0%E6%B1%82%E5%92%8C"><span class="toc-number">4.2.2.</span> <span class="toc-text">尾数求和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%84%E6%A0%BC%E5%8C%96"><span class="toc-number">4.2.3.</span> <span class="toc-text">规格化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%88%8D%E5%8E%BB%E4%BB%A5%E5%8F%8A%E6%BA%A2%E5%87%BA%E5%88%A4%E6%96%AD"><span class="toc-number">4.2.4.</span> <span class="toc-text">舍去以及溢出判断</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/c8704e91.html" title="软件工程知识库介绍">软件工程知识库介绍</a><time datetime="2026-08-30T15:34:00.000Z" title="发表于 2026-08-30 23:34:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/899287ff.html" title="个人知识库介绍">个人知识库介绍</a><time datetime="2026-08-30T15:32:00.000Z" title="发表于 2026-08-30 23:32:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/9228418d.html" title="毕设与相关项目介绍">毕设与相关项目介绍</a><time datetime="2026-08-30T15:30:00.000Z" title="发表于 2026-08-30 23:30:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/2de6b87f.html" title="数据库复习3">数据库复习3</a><time datetime="2025-11-11T04:31:57.000Z" title="发表于 2025-11-11 12:31:57">2025-11-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/5ae188e9.html" title="数据库复习2">数据库复习2</a><time datetime="2025-11-11T04:31:45.000Z" title="发表于 2025-11-11 12:31:45">2025-11-11</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Arrinna</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"请输入评论内容...","pageView":true}
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'KXbSjKGH7NCsReUp1mNIM2Xb-MdYXbMMI',
+      appKey: '2SuAlB2Qs3IBkVY15Q2TJHwR',
+      avatar: 'monsterid',
+      serverURLs: 'https://kxbsjkgh.api.lncldglobal.com',
+      emojiMaps: "",
+      visitor: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/valine@1.5.3/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><div class="aplayer no-destroy" data-id="17381553477" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-theme="#b7daff"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

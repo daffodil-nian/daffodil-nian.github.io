@@ -1,0 +1,221 @@
+/* 全站背景图设置 - 与动画兼容 */
+html, body {
+  background-image: url('/img/agirl.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  min-height: 100vh !important;
+  position: relative;
+  z-index: 0; /* 确保背景图在最底层 */
+}
+
+/* 强制移除所有可能覆盖背景的元素 */
+#web_bg,
+body::before,
+body::after,
+#page-header::before,
+#page-header::after {
+  background: none !important;
+  background-image: none !important;
+}
+
+/* 让所有主要容器透明，显示背景 */
+#page-header,
+#content-outer,
+.layout,
+#body-wrap {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 只给实际内容区域加半透明白色背景 */
+#recent-posts .recent-post-item,
+.card-widget,
+#post,
+.post-content {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 侧边栏背景和显示修复 */
+#aside {
+  background: transparent !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 确保侧栏卡片正常显示 */
+#aside .card-widget {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* footer透明 */
+#footer {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* 暗色模式适配 */
+[data-theme="dark"] #recent-posts .recent-post-item,
+[data-theme="dark"] .card-widget,
+[data-theme="dark"] #post,
+[data-theme="dark"] .post-content {
+  background: rgba(32, 32, 32, 0.9) !important;
+}
+
+[data-theme="dark"] #footer {
+  background: rgba(32, 32, 32, 0.85) !important;
+}
+
+/* 导航栏优化 - 文字更清楚 */
+#nav {
+  background: rgba(255, 255, 255, 0.95) !important; /* 增加不透明度 */
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+}
+
+/* 导航栏文字样式优化 */
+#nav .menus_items .menus_item a {
+  color: #333 !important; /* 深色文字 */
+  font-weight: 500; /* 加粗 */
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8); /* 白色文字阴影 */
+}
+
+/* 导航栏文字悬停效果 */
+#nav .menus_items .menus_item a:hover {
+  color: #007bff !important; /* 悬停时蓝色 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 网站标题样式 */
+#nav .site-name {
+  color: #333 !important;
+  font-weight: bold !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* 暗色模式下的导航栏 */
+[data-theme="dark"] #nav {
+  background: rgba(32, 32, 32, 0.95) !important;
+}
+
+[data-theme="dark"] #nav .menus_items .menus_item a {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] #nav .site-name {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* ====== 动画兼容性设置 ====== */
+
+/* 确保canvas动画正常显示 */
+canvas[id*="ribbon"] {
+  pointer-events: auto !important;
+  z-index: -1 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+canvas[id*="fireworks"],
+canvas[id*="universe"] {
+  pointer-events: auto !important;
+}
+
+/* 烟花动画在前景 */
+canvas[id*="fireworks"] {
+  z-index: 9999 !important;
+}
+
+/* 星空背景动画 */
+canvas[id*="universe"] {
+  z-index: -2 !important; /* 比彩带更靠后 */
+}
+
+/* 确保动画容器不被影响 */
+.fireworks,
+.canvas-ribbon,
+#universe {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+}
+
+/* 强制彩带动画显示 */
+#ribbon-canvas,
+.ribbon-canvas,
+canvas[id*="ribbon"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  animation: none !important; /* 避免CSS动画冲突 */
+}
+
+/* 打字特效不受影响 */
+.power-mode-shake {
+  animation: none !important;
+}
+
+/* 确保激活模式特效正常 */
+.activate-power-mode {
+  z-index: 999 !important;
+}
+
+/* 公告卡片自定义样式 */
+.card-widget.card-announcement {
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  cursor: move;
+}
+
+.xpand-ad {
+  margin-top: 20px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffd54f 0 12px,
+    #ffe082 12px 24px
+  );
+  border: 1px dashed #b38f00;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #5c3d00;
+  height: 200px;
+}
+
+/* 暗色模式 */
+.dark-mode .xpand-ad {
+  background: repeating-linear-gradient(
+    45deg,
+    #4b4b23 0 12px,
+    #5b5b2b 12px 24px
+  );
+  border-color: #8a7f3d;
+  color: #e8e3c0;
+}
+

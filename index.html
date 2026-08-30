@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Arrinna - 一个正在学习技术的博主</title><meta name="author" content="Arrinna"><meta name="copyright" content="Arrinna"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Arrinna">
+<meta property="og:url" content="https://daffodil-nian.github.io/index.html">
+<meta property="og:site_name" content="Arrinna">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://daffodil-nian.github.io/img/butterfly-icon.png">
+<meta property="article:author" content="Arrinna">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://daffodil-nian.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Arrinna",
+  "alternateName": [
+    "一个正在学习技术的博主",
+    "daffodil-nian.github.io"
+  ],
+  "url": "https://daffodil-nian.github.io/"
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://daffodil-nian.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Arrinna',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/custom.css"><script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r";</script><meta name="generator" content="Hexo 8.1.0"></head><body><div id="web_bg" style="background: [object Object];"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/agirl.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Arrinna</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Arrinna</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/c8704e91.html" title="软件工程知识库介绍">软件工程知识库介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-30T15:34:00.000Z" title="发表于 2026-08-30 23:34:00">2026-08-30</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-30T15:30:02.487Z" title="更新于 2026-08-30 23:30:02">2026-08-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">项目介绍</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="content">「软件工程知识库」这一块，我主要挂两类公开笔记：Java &#x2F; Java Web 体系，以及 网络安全学习笔记。都是学习向整理，适合当目录导航用。 一、Java 学习笔记（推荐精读）仓库：brianway&#x2F;java-learning 定位：在线 Java 学习笔记，含博客讲解和源码实例（Maven 分模块），覆盖反射、代理、多线程、IO、集合、JVM、Java 8 等。 仓库结构 blogs：博客文档 java-base：基础巩固源码 java-multithread：多线程 java-container：容器 java-io：IO java-jvm：JVM java8：Java 8  博客主题一览（节选）Java SE：反射、泛型、类加载器、代理 &#x2F; AOP 小框架、多线程（传统 &#x2F; 共享数据 &#x2F; 并发库）、注解   Java Web：Tomcat、HTTP、Servlet、request &#x2F; response、cookie &#x2F; session、JSP   更适合在线阅读时，也可移步作者在 CSDN &#x2F...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/899287ff.html" title="个人知识库介绍">个人知识库介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-30T15:32:00.000Z" title="发表于 2026-08-30 23:32:00">2026-08-30</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-30T15:30:01.632Z" title="更新于 2026-08-30 23:30:01">2026-08-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">项目介绍</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/">知识库</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%AF%BB%E4%B9%A6/">读书</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content">这里是我的个人知识库入口说明：把读书、英语、计划、技术碎记和毕设踩坑笔记收在一个仓库里，尽量保持更新。 仓库地址daffodil-nian&#x2F;book  这里是 Arrinna 的读书小天地，会尽量日更所读的书和对应读后感 (@^0^@)/  目录大概长什么样   目录 内容    book_note 读书笔记   reading_review 读后感   english_review 英语相关复习 &#x2F; 笔记   tech_notes 技术笔记   my_plan 个人计划   mc_note 其他专题笔记（如建筑相关等）   README 里也会挂毕业设计开发笔记入口（后端 BUG、前端 BUG、图片设计等），和正式毕设代码仓分开：代码看全栈仓库，踩坑与思路沉淀可以写在知识库里。 怎么用 只想浏览：直接打开仓库里的 Markdown。 想跟着写自己的库：可以 fork 后改成自己的目录结构。 和本站的关系：博客更偏「写成文的讲解」；book 更偏「长期堆积的原始笔记与计划」。  欢迎去仓库逛逛，有好用的笔记组织方式也欢迎交流。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/9228418d.html" title="毕设与相关项目介绍">毕设与相关项目介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-30T15:30:00.000Z" title="发表于 2026-08-30 23:30:00">2026-08-30</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-30T15:30:00.570Z" title="更新于 2026-08-30 23:30:00">2026-08-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">项目介绍</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%AF%95%E8%AE%BE/">毕设</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%85%A8%E6%A0%88/">全栈</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Vue/">Vue</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/SpringBoot/">SpringBoot</a></span></div><div class="content">这篇文章用来集中介绍我正在推进的毕业设计，以及同栈相关的课设 &#x2F; 大创项目。仓库都在 GitHub 上，欢迎 star &#x2F; fork &#x2F; 提 issue。 毕设主线：仿 Bilibili 全栈系统一句话：内容社区向的全栈毕设——用户、专栏、互动、搜索等能力逐步落地。    端 仓库 说明    后端 bilibili-fullstack-implementation-backend Spring Boot 等，含用户、专栏、互动、Redis &#x2F; ES 等   前端 bilibili-fullstack-implementation-frontend Vue 3 + TypeScript + Vite   目前进度（摘自后端 README，2026-08-30） 登录 &#x2F; 注册：基本完成 修改用户信息：基本完成 专栏发布：入库、标签关联、已发布同步 ES 专栏详情：权限校验、作者 &#x2F; 标签 &#x2F; 是否已赞、Redis 点击量 专栏互动：投币 &#x2F; 收藏 &#x2F; 转发（表 + 实体 + Mapper）；...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/2de6b87f.html" title="数据库复习3">数据库复习3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-11T04:31:57.000Z" title="发表于 2025-11-11 12:31:57">2025-11-11</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-11T04:35:26.688Z" title="更新于 2025-11-11 12:35:26">2025-11-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">来到本章节，我们就要开始讲解数据库编程知识了 准备坐上小火车，我们出发了~ 常量与变量字符串常量就用个单引号或者双引号来装着。 常量我们就略过，主要讲讲变量。 1全局变量是@@，局部变量是@  常见的系统函数字符串123456char_length()返回字符串的str的字符个数length()返回字符串字节长度select char_length(&#x27;china&#x27;),length(&#x27;china&#x27;)  合并字符串函数12concat(&#x27;1&#x27;,&#x27;2&#x27;)  字符串大小写转换函数12lower()upper()  删除空格函数123ltrim()rtrim()trim()  取子串函数123substring()select * from emp where substring(ename,1,1)=&#x27;s&#x27;返回开头是s的雇员的信息  日期和时间函数1234curdate()&#x27;yyyy-mm-dd&#x27;year()    程序控制流语句语句块123beginsql语句块end...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/5ae188e9.html" title="数据库复习2">数据库复习2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-11T04:31:45.000Z" title="发表于 2025-11-11 12:31:45">2025-11-11</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-11T04:35:26.687Z" title="更新于 2025-11-11 12:35:26">2025-11-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">接下来我们就开始复习第二章节的知识了。 第二章开始讲语法了。 我们可以看看之前写的实验报告。 基础概念回顾 我们来回顾一下SQL数据库的体系结构，SQL支持数据库的三级模式和二级映射，其中二级映射保证数据库的数据独立性。 SQL用户可以用SQL语言对表和视图进行查询。 视图说白了就是虚表，我们怎么理解视图？  我们看下SQL语言的特点吧 123456781.综合统一：SQL语言风格统一2.高度非过程化：这个特点怎么理解呢，我们可以简单的这么理解，我们只需要知道这么操作可以得到什么结果并不需要知道为什么。3.面向集合的操作方法：这个简单，我们的行是元组组成的，把一堆元组集合就是一个集合  SQL的主要动词123456DDL:create,drop,alterDML:insert,delete,update,selectDCL:revoke,commit,grant,rollback  数据定义从这里开始我们要以实验报告中的例子来结合讲解一系列概念 题目11231.使用SQL语句创建数据库studentsdb。2.使用SQL语句选择studentsdb为当前使用的数据库。 3.使用S...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/c3e8d953.html" title="数据库复习1">数据库复习1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-11T04:31:13.000Z" title="发表于 2025-11-11 12:31:13">2025-11-11</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-11T04:35:26.686Z" title="更新于 2025-11-11 12:35:26">2025-11-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">应用 欢迎来到我们数据库的海洋，在这里我希望各位能够通过我的博客有所收获，那废话不多说我们直接开讲  首先我们要现知道数据库中经常听到SQL语句，那SQL语句是什么意思呢？  SQL语句，全称结构化查询语言（Structured query language）,  然后我们想要求解 数据库系统的概念数据数据是数据库存储的基本对象，可以类比为excel表格中的单元格存储的东西。 数据库的话我们可以想象成元组的集合。 数据库管理系统DBMS这个是一款用户和操作系统OS之间的一层数据库管理软件。 比如说MYSQL，Oracle等软件。 它包括以下功能 123456DML数据操控语言DDL数据定义语言DCL数据控制语言  DDL然后我们讲解一下DDL语言哈，这个也是我们最先接触到的数据语言，我们可以把这个类比成我们创建excel表格并且定义好又哪些属性，这就是我们DDL的功能职责。 DML接下来就是DML语言了，DML语言中就是我们常说的增删改查这些，无论是在我们数据结构这么课程中还是在我们日常用excel表格的过程中，我们都经常用到这种操作，至于语法结构就等我们到第二章节再讲。 DCL...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/9226b34e.html" title="计组之定点数与浮点数的运算法则">计组之定点数与浮点数的运算法则</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-07T09:07:22.000Z" title="发表于 2025-11-07 17:07:22">2025-11-07</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-07T10:56:48.666Z" title="更新于 2025-11-07 18:56:48">2025-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%BB%84/">计组</a></span></div><div class="content">原码加减运算 首先我们了解一下原码的加减法的规则，计算机是不能做减法的，所以我们想要把被减数变补，也就是变成补码再做加法运算。  补码加减运算 补码渐渐运算要比原码的简单  加法运算补码的加法运算符号位要参与运算，结果就是等于补码之和 减法运算补码减法就是把后面的值换成减数的补码，也就是变补 例题讲解1234567891011121314例题1.设A=0.1011，B=-0.1110求A+B：[A]补=0.1011[B]补=1.0010A+B=1.1101例题2.设A=0.1011，B=-0.0010，求A-B[A]补=0.1011[-B]补=0.0010A-B=0.1101  符号拓展 在我们计算机算数的过程中，有的时候需要拓展位数，其中正数拓展0负数拓展1.  定点数乘除法运算例题讲解   规格化浮点运算知识回顾 在我们之前学的知识中，我们学习了规格化浮点数是一个怎样的概念以及这个东西的具体例子，让我带你们来回顾一下这个是什么东西吧。  首先我们要搞懂浮点数的表示形式 https://blog.csdn.net/weixin_43829058&#x2F;article&#x2...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/4b2d8ff5.html" title="蓝桥杯刷题day1">蓝桥杯刷题day1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-04T05:45:25.000Z" title="发表于 2025-11-04 13:45:25">2025-11-04</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-04T05:47:10.548Z" title="更新于 2025-11-04 13:47:10">2025-11-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content"> 这几天每天晚上刷两个小时的算法题，考虑到我的基础忘得差不多了，所以我今天晚上开始计划十天之内基础打牢。考虑到我的逻辑考虑的不全面所以我要先好好梳理逻辑。  我选择的是cpp方向的 123456789101112131415161718192021222324252627资源限制时间限制：1.0s   内存限制：256.0MB问题描述对于长度为5位的一个01串，每一位都可能是0或1，一共有32种可能。它们的前几个是：0000000001000100001100100请按从小到大的顺序输出这32种01串。输入格式本试题没有输入。输出格式输出32行，按从小到大的顺序每行一个长度为5的01串。样例输出00000000010001000011&lt;以下部分省略&gt;   代码部分 法一,优雅写法 12345678910#include&lt;iostream&gt;using namespace std;int main()&#123;    for(int i=0;i&lt;32;i++)&#123;        for(int j=4;j&gt;=0;j--)&#123;   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/5ec6dff5.html" title="数据的机器层次之定点数和浮点数笔记01">数据的机器层次之定点数和浮点数笔记01</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-04T05:28:59.000Z" title="发表于 2025-11-04 13:28:59">2025-11-04</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-07T09:08:02.960Z" title="更新于 2025-11-07 17:08:02">2025-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%BB%84/">计组</a></span></div><div class="content">定点表示法原码 本章节就重点讲解一下这些表示法是怎么算出来的吧~  视频讲解在这里 https://www.bilibili.com/video/BV1qG41197E4?t=45.3&amp;p=12   1234567891011121314151617181920212223242526我们讲讲定点整数和定点小数的例子吧真值x=+1101原码表示怎么写的呢？我们来讲讲吧[x]原=0,1101，前面是符号位如果真值x=-1101[x]原=1,1101讲完定点整数，接下来就是定点小数了。真值x=+0.110101[x]原=0.110101真值x=-0.1101[x]原=1.1101说白了，原码就是带符号的绝对值的表示整数的原码表示是[x]原=&#123;0,x 2^n+|x| &#125;小数的原码定义[x]原&#123;x1+|x|&#125;    补码首先讲讲整数的补码  123456定点整数的补码很简单，比如说我的定点整数是(-10101)2[x]补怎么求呢？n为数值位的位数，假设字长为8位，我们数值位就7位，然后怎么求呢？[x]补=2^8+(-10101)=10000...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/2b79c65f.html" title="4.关系数据的基本模型笔记01">4.关系数据的基本模型笔记01</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-03T07:46:33.000Z" title="发表于 2025-11-03 15:46:33">2025-11-03</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-07T09:08:02.896Z" title="更新于 2025-11-07 17:08:02">2025-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/">数据库笔记</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">关系模型的基本概念基本术语 小蝶学习关系模型感觉疑惑，不知道很多基本术语，就问冉冉，冉冉就给她解答  https://blog.csdn.net/aiqq136/article/details/123108011?ops_request_misc&#x3D;%257B%2522request%255Fid%2522%253A%2522b309c696495eca9bec52ec8b28ac0f65%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id&#x3D;b309c696495eca9bec52ec8b28ac0f65&amp;biz_id&#x3D;0&amp;utm_medium&#x3D;distribute.pc_search_result.none-task-blog-2alltop_positive~default-1-123108011-null-null.142^v102^pc_search_result_base7&amp;utm_term&#x3D;%E...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Arrinna</div><div class="author-info-description">Arrinna的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/daffodil-nian"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><div class="xpand" style="height:200px;">
+  <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+</div>
+<script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script>
+<script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script>
+</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/c8704e91.html" title="软件工程知识库介绍">软件工程知识库介绍</a><time datetime="2026-08-30T15:34:00.000Z" title="发表于 2026-08-30 23:34:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/899287ff.html" title="个人知识库介绍">个人知识库介绍</a><time datetime="2026-08-30T15:32:00.000Z" title="发表于 2026-08-30 23:32:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/9228418d.html" title="毕设与相关项目介绍">毕设与相关项目介绍</a><time datetime="2026-08-30T15:30:00.000Z" title="发表于 2026-08-30 23:30:00">2026-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/2de6b87f.html" title="数据库复习3">数据库复习3</a><time datetime="2025-11-11T04:31:57.000Z" title="发表于 2025-11-11 12:31:57">2025-11-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/5ae188e9.html" title="数据库复习2">数据库复习2</a><time datetime="2025-11-11T04:31:45.000Z" title="发表于 2025-11-11 12:31:45">2025-11-11</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">数据库笔记</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"><span class="card-category-list-name">计算机组成原理</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/"><span class="card-category-list-name">项目介绍</span><span class="card-category-list-count">3</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.45em; color: rgb(170, 50, 50);">数据库</a><a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.15em; color: rgb(123, 88, 110);">知识库</a><a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.15em; color: rgb(189, 50, 196);">读书</a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.15em; color: rgb(181, 89, 59);">笔记</a><a href="/tags/%E6%AF%95%E8%AE%BE/" style="font-size: 1.15em; color: rgb(61, 84, 185);">毕设</a><a href="/tags/%E5%85%A8%E6%A0%88/" style="font-size: 1.15em; color: rgb(157, 50, 159);">全栈</a><a href="/tags/Vue/" style="font-size: 1.15em; color: rgb(124, 75, 197);">Vue</a><a href="/tags/SpringBoot/" style="font-size: 1.15em; color: rgb(105, 120, 189);">SpringBoot</a><a href="/tags/%E8%AE%A1%E7%BB%84/" style="font-size: 1.3em; color: rgb(58, 76, 60);">计组</a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.15em; color: rgb(50, 50, 70);">算法</a><a href="/tags/Java/" style="font-size: 1.15em; color: rgb(50, 56, 136);">Java</a><a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" style="font-size: 1.15em; color: rgb(176, 51, 124);">软件工程</a><a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 1.15em; color: rgb(50, 52, 50);">网络安全</a><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.15em; color: rgb(144, 50, 62);">学习笔记</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/08/">
+            <span class="card-archive-list-date">
+              八月 2026
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/10/">
+            <span class="card-archive-list-date">
+              十月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">13</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">10.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-08-30T15:31:31.679Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Arrinna</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.1"></script><script src="/js/main.js?v=5.5.1"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["于各道努力，千里自同风。","把你体内的 DNA 搓成一条线的话，它能延伸 100 亿英里，比地球到冥王星的距离还远，所以光靠你自己就足够离开太阳系了，从字面意义来看，你就是宇宙。","勇于追梦","无人扶我青云志，我自踏至雪山巅"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["于各道努力，千里自同风。","把你体内的 DNA 搓成一条线的话，它能延伸 100 亿英里，比地球到冥王星的距离还远，所以光靠你自己就足够离开太阳系了，从字面意义来看，你就是宇宙。","勇于追梦","无人扶我青云志，我自踏至雪山巅"])
+}
+typedJSFn.run(subtitleType)</script></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><div class="aplayer no-destroy" data-id="17381553477" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-theme="#b7daff"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
